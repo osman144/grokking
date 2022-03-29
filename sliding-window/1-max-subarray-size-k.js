@@ -17,13 +17,15 @@ function maxSumSubarray(arr, k){
   let windowStart = 0;
 
   for(let windowEnd = 0; windowEnd < arr.length; windowEnd++){
-    windowSum = windowSum + arr[windowEnd] // 2
-
+    windowSum = windowSum + arr[windowEnd] 
+  
     if(windowEnd >= k - 1){
       maxSum = Math.max(maxSum, windowSum);
       windowSum = windowSum - arr[windowStart];
+      windowStart++; // slide the window ahead
     }
   }
 }
 
 console.log(maxSumSubarray([2, 3, 4, 1, 5], 2))
+                                  ____
