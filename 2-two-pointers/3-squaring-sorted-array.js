@@ -34,4 +34,5 @@ function squareSorted(arr){
   return squares;
 }
 
-console.log(squareSorted([-3, -1, 0, 1, 2]));
+// time complexity O(n)
+// space complexity O(n)
