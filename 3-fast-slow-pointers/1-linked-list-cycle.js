@@ -25,7 +25,7 @@ function fastSlow(head){
 }
 
 
-// Design Gurus Additional Problem
+// Additional Problem
 // Given the head of a LinkedList with a cycle, find the length of the cycle.
 class Node {
   constructor(value, next = null) {
