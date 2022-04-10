@@ -41,15 +41,15 @@ class LinkedList{
   reverse(){
     // swap the heads and the tail
     let current = this.head; // 1
-    this.head = this.tail; // 4
+    this.head = this.tail; // 5
     this.tail = current; // 1
 
     let prev = null;
     let next;
     while(current){
-      next = current.next // 2
-      current.next = prev // update pointer
-      prev = current; // 1
+      next = current.next // 3
+      current.next = prev // update pointer null <- 1 <- 2
+      prev = current; // 2
       current = next // 2
     }
   }
@@ -65,5 +65,8 @@ ll.insert(5);
 ll.print()
 ll.reverse();
 ll.print();
+
+// Time complexity to reverse: O(n)
+// Space O(1)
 
 
