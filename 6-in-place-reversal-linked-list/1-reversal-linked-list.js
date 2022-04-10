@@ -66,7 +66,7 @@ ll.print()
 ll.reverse();
 ll.print();
 
-// Time complexity to reverse: O(n)
+// Time complexity to reverse: O(n) //
 // Space O(1)
 
 
