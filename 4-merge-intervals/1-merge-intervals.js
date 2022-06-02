@@ -15,7 +15,7 @@ Output: [[1,6]]
 **/
 
 function merge(intervals){
-  if (intervals.length < 2) return intervals; // if empty
+  if (intervals.length < 2) return intervals;
   
   intervals.sort((a, b) => a[0] - b[0]);
   // [[1, 4], [2, 6], [3, 5]]

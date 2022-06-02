@@ -11,21 +11,21 @@ Output: 7
 Explanation: Subarray with maximum sum is [3, 4].
 **/ 
 
-function maxSumSubarray(arr, k){
-  let maxSum = 0;
-  let windowSum = 0;
-  let windowStart = 0;
+// function maxSumSubarray(arr, k){
+//   let maxSum = 0;
+//   let windowSum = 0;
+//   let windowStart = 0;
 
-  for(let windowEnd = 0; windowEnd < arr.length; windowEnd++){
-    windowSum = windowSum + arr[windowEnd] 
+//   for(let windowEnd = 0; windowEnd < arr.length; windowEnd++){
+//     windowSum = windowSum + arr[windowEnd] 
   
-    if(windowEnd >= k - 1){
-      maxSum = Math.max(maxSum, windowSum);
-      windowSum = windowSum - arr[windowStart];
-      windowStart++; // slide the window ahead
-    }
-  }
-}
+//     if(windowEnd >= k - 1){
+//       maxSum = Math.max(maxSum, windowSum);
+//       windowSum = windowSum - arr[windowStart];
+//       windowStart++; // slide the window ahead
+//     }
+//   }
+// }
 
-console.log(maxSumSubarray([2, 3, 4, 1, 5], 2))
-                                  ____
+// console.log(maxSumSubarray([2, 3, 4, 1, 5], 2))
+//                                   ____
