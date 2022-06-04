@@ -27,5 +27,25 @@ Explanation: Subarray with maximum sum is [3, 4].
 //   }
 // }
 
-// console.log(maxSumSubarray([2, 3, 4, 1, 5], 2))
-//                                   ____
+
+function maxSumSubarray(arr, k){
+  let left = 0;
+  let maxSum = 0;
+  let windowSum = 0;
+
+  for(let right=0; right<arr.length;right++){
+    windowSum = arr[right] + windowSum;
+
+    if(right >= k-1){
+      maxSum = Math.max(maxSum, windowSum);
+      windowSum = windowSum - arr[left];
+      left = left+1;
+    }
+  }
+
+  return maxSum;
+};
+
+
+console.log(maxSumSubarray([2, 3, 4, 1, 5], 2))
+//                             l     r
