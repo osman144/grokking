@@ -27,45 +27,35 @@ function longestDistinctSubstring(str, k){
 
   /*
     {
-      c: 1,
-      i: 1
+      c:1,
+      i:1
     }
   */
 
   for(let right=0; right<arr.length; right++){
-    let size = Object.keys(obj).length; // 2
-
-    if(size < k){
-      if(!(arr[right] in obj)){
-        obj[arr[right]] = 1;
-      }else{
-        obj[arr[right]] += 1;
-      };
+    let rightChar = arr[right]
+    if(!(rightChar in obj)){
+      obj[rightChar] = 0
     }
+    obj[rightChar] = obj[rightChar] + 1;
 
-    console.log(obj);
-    
-    // while(size >= k && !(arr[right] in obj)){
-    //   // move left up 
-    //   if(arr[left] <= 1){
-    //     obj[arr[left]--]
-    //     delete obj[arr[left]];
-    //     left = left + 1;
-    //   }else{
-    //     obj[arr[left]--];
-    //     left = left + 1;
-    //   }
-    //   size = Object.keys(obj).length;
-    // }
+    // let size = Object.keys(obj).length; // 3
 
-    // let currentLength = 0;
-    // for (var property in obj) {
-    //   currentLength += obj[property];
-    // }
-    // length = Math.max(length, currentLength); // 4
+    while(Object.keys(obj).length > k){
+      const leftChar = arr[left]
+      obj[leftChar] = obj[leftChar] - 1;
+      if(obj[leftChar] === 0){
+        delete obj[leftChar];
+      }
+      
+      left = left + 1;
+    }
+    let currentLength = right - left + 1; // 2
+
+    length = Math.max(length, currentLength); // 4
   }
 
   return length;
 }
 
-console.log(longestDistinctSubstring("araaci", 2));
+console.log(longestDistinctSubstring("cbbebi", 3));
