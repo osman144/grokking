@@ -42,7 +42,7 @@ function longestDistinctSubstring(str, k){
     // let size = Object.keys(obj).length; // 3
 
     while(Object.keys(obj).length > k){
-      const leftChar = arr[left]
+      let leftChar = arr[left]
       obj[leftChar] = obj[leftChar] - 1;
       if(obj[leftChar] === 0){
         delete obj[leftChar];
