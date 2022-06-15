@@ -11,26 +11,29 @@ Output: [0, 2]
 Explanation: The numbers at index 0 and 2 add up to 11: 2+9=11
 **/
 
-
-function findSum(arr, targetSum){
-  let right = arr.length-1;
+function pairSum(arr, target){
   let left = 0;
+  let right = arr.length-1;
 
   while(left < right){
-    const currentSum = arr[left] + arr[right];
-    if (currentSum === targetSum) {
+    let val = arr[left] + arr[right];
+
+    if(val === target){
       return [left, right];
     }
-    if (targetSum > currentSum) {
-      left += 1; // we need a pair with a bigger sum
-    } else {
-      right -= 1; // we need a pair with a smaller sum
+
+    if(val > target){
+      right = right - 1;
+    }
+
+    if(val < target){
+      left = left + 1;
     }
   }
 
-  return 'none';
+  return null;
 }
 
-// Time complexity = O(n)
-// Space complexity = O(1) constant space
+console.log(pairSum([2, 5, 9, 11], 11));
 
+// choice choice choice
