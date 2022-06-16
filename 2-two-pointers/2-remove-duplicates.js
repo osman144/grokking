@@ -28,4 +28,4 @@ function removeDuplicates(arr) {
   return nextNonDuplicate;
 }
 
-console.log(removeDuplicates([2, 3, 3, 3, 6, 9, 9]))
+// console.log(removeDuplicates([2, 3, 3, 3, 6, 9, 9]))
