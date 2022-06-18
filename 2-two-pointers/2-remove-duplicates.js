@@ -12,7 +12,7 @@ Output: 2
 Explanation: The first two elements after removing the duplicates will be [2, 11].
 **/
 
-function removeDuplicates(arr) {
+function remove_duplicates(arr) {
   // index of the next non-duplicate element
   let nextNonDuplicate = 1;
 
@@ -20,6 +20,7 @@ function removeDuplicates(arr) {
   while (i < arr.length) {
     if (arr[nextNonDuplicate - 1] !== arr[i]) {
       arr[nextNonDuplicate] = arr[i];
+      // 
       nextNonDuplicate += 1;
     }
     i += 1;
@@ -28,4 +29,11 @@ function removeDuplicates(arr) {
   return nextNonDuplicate;
 }
 
-// console.log(removeDuplicates([2, 3, 3, 3, 6, 9, 9]))
+// i = 1
+// nextNonDuplicate = 1;
+// arr[nextNonDuplicate - 1] = 2
+// arr[i] = 3
+// if 2 !== 2 // false
+// [2, 3, 3, 3, 6, 9, 9]
+//     i
+//     n 
