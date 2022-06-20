@@ -37,3 +37,7 @@ function squareSorted(arr){
 console.log(squareSorted([-2, -1, 0, 2, 3]));
 console.log(squareSorted([-3, -1, 0, 1, 2]));
 console.log(squareSorted([-4, -1, 0, 3, 10]));
+
+// Time Complexity O(n)
+// Space O(n)
+ 
