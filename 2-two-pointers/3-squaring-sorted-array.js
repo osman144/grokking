@@ -14,25 +14,26 @@ Output: [0, 1, 9, 16, 100]
 **/
 
 function squareSorted(arr){
-  let left = 0;
-  let right = arr.length - 1
-  let squares = []; // [1, 1, 4, 9]
+  let newArr = [];
+  let left = 0
+  let right = arr.length-1;
 
   while(left <= right){
-    let leftSquared = Math.pow(arr[left], 2); // 1
-    let rightSquared = Math.pow(arr[right], 2); // 0
+    let leftCurrent = Math.pow(arr[left], 2);
+    let rightCurrent = Math.pow(arr[right], 2);
 
-    if(leftSquared > rightSquared){
-      squares.unshift(leftSquared)
-      left = left + 1;
+    if(leftCurrent > rightCurrent){
+      newArr.unshift(leftCurrent);
+      left++;
     }else{
-      squares.unshift(rightSquared) 
-      right = right - 1;
+      newArr.unshift(rightCurrent);
+      right--;
     }
   }
 
-  return squares;
+  return newArr;
 }
 
-// time complexity O(n)
-// space complexity O(n)
+console.log(squareSorted([-2, -1, 0, 2, 3]));
+console.log(squareSorted([-3, -1, 0, 1, 2]));
+console.log(squareSorted([-4, -1, 0, 3, 10]));
