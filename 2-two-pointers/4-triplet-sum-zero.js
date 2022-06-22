@@ -28,7 +28,8 @@ function tripletSum(arr){
   arr = arr.sort((a,b) => a-b);
   let tripletSum = [];
 
-  for(let i=0; i<arr.length; i++){
+  for(let i=0; i<arr.length-2; i++){
+    // substract two so it doesn't go out of bounds, with left and right pointers
     // skip same element for i value to avoid duplicates
     if(i>0 && arr[i] === arr[i-1]){
       continue;
