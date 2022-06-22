@@ -15,47 +15,49 @@ Explanation: There are two unique triplets whose sum is equal to zero.
 // solution
 /*
 - sort the array
+- target is zero
 - iterate, so when x+y+z = 0 --> y + z = -x
-- find 
+- skip same element to avoid duplicate triplets
+- find the triplets that sum to zero
+[-2, -1, -1, 0, 1, 2, 3]
+             
+[-2, -1, 3] [-2, 0, 2] [-1, -1, 2] [-1, 0, 1]
 */
 
-function tripletSumZero(arr){
+function tripletSum(arr){
   arr = arr.sort((a,b) => a-b);
-  let res = [];
+  let tripletSum = [];
 
   for(let i=0; i<arr.length; i++){
-    if(i > 0 && arr[i] === arr[i-1]){
+    // skip same element for i value to avoid duplicates
+    if(i>0 && arr[i] === arr[i-1]){
       continue;
-    };
+    }
 
-    let left = i+1;
-    let right = arr.length-1;
-    
+    let left=i+1;
+    let right=arr.length-1;
+
     while(left<right){
-      let threeSum = arr[i] + arr[left] + arr[right];
-      if(threeSum > 0){
-        right--;
-      }else if(threeSum < 0){
+      let sum= arr[i] + arr[left] + arr[right];
+      if(sum<0){
+        // too low 
         left++;
+      }else if(sum > 0){
+        // too high
+        right--;
       }else{
-        res.push([arr[i], arr[left], arr[right]]);
+        tripletSum.push([arr[i], arr[left], arr[right]]);
         left++;
 
-        // shift pointer if same value
-        while(arr[left] === arr[left-1] && left < right){
+        //shift left value forward if the left value the same
+        while(left<right && arr[left] === arr[left-1]){
           left++;
         }
       }
     }
-    // console.log(res)
   }
-  // console.log(res);
-  return res
+
+  return tripletSum;
 }
 
-console.log(tripletSumZero([-5, 2, -1, -2, 3]))
-
-/*
-[-3, -2, -1, 0, 1,  1,  2]
-a    l                  r
-*/
+console.log(tripletSum([-2, -1, -1, 0, 1, 2, 3]));
