@@ -22,20 +22,13 @@ Explanation: The first two elements after removing the duplicates will be [2, 11
 */
 
 function removeDuplicates(arr){
-  let nextNonduplicate = 1;
+  let left = 1;
+  let right = 1;
 
-  let i=0;
-  while(i<arr.length){
-    if(arr[nextNonduplicate - 1] !== arr[i]){
-      arr[nextNonduplicate] = arr[i];
-      nextNonduplicate++;
-    }
-
-    i++;
-  }
-
-  return nextNonduplicate;
+  // while(left)
 }
 
 // [2, 3, 6, 9, 6, 9, 9]
 //              n        i
+
+console.log(removeDuplicates([2, 3, 3, 3, 6, 9, 9]))
