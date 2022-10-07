@@ -15,10 +15,11 @@ function countIslandsBFS(matrix){
   let rows = matrix.length;
   let cols = matrix[0].length;
   let numOfIslands = 0;
+  const visited = new Set()
 
   for(let i = 0; i < rows; i++){
     for(j = 0; j < cols; j++){
-      if(matrix[i][j] === 1){
+      if(matrix[i][j] === 1 && !visited.has([i,j])){
         // if the element is land 
         numOfIslands++;
         bfs(matrix, i, j)
@@ -39,9 +40,9 @@ function bfs(matrix, i, j){
     const col = cell[1]
 
     // validate
-    if(row < 0 || row >= matrix.length || col < 0 || col >= matrix[0].length) continue;
+    if(row < 0 || row >= matrix.length || col < 0 || col >= matrix[0].length) continue; // skip
 
-    if(matrix[row][col] === 0) continue;
+    if(matrix[row][col] === 0) continue; // skip
 
     matrix[row][col] = 0;
 
@@ -53,7 +54,8 @@ function bfs(matrix, i, j){
   }
 }
 
-
+// time O(MxN)
+// space will be O(MxN), because of the visited array and max size of the queue
 
 console.log(countIslandsBFS([
   [1, 1, 1, 0, 0],
