@@ -1,3 +1,5 @@
+// easy
+// ============ Flood Fill ==============
 function floodFill(matrix,x,y,newColor){
   let oldColor = matrix[x][y];
   if(matrix[x][y] !== newColor){
