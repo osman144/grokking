@@ -1,4 +1,4 @@
-// Easy
+// Medium
 // ============ All Paths ==============
 class Node {
   constructor(val){
