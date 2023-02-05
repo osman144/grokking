@@ -21,18 +21,17 @@ class Tree {
     while(queue.length > 0){
       let currLevel = [];
       let currLength = queue.length;
+      let levelSum = 0;
       for(let i =0; i<currLength; i++){
         let currNode = queue.shift();
 
-        currLevel.push(currNode.val)
+        levelSum = levelSum + currNode.val;
         
         if(currNode.left !== null) queue.push(currNode.left);
         if(currNode.right !== null) queue.push(currNode.right); 
       }
-      
-      let average = currLevel.reduce((a,b) => a + b) / currLevel.length
 
-      arr.push(average);
+      arr.push(levelSum / currLength);
     }
 
     return arr;
