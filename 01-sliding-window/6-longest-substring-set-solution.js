@@ -10,7 +10,7 @@ const sw = (str) => {
 
   for (let end = 0; end < str.length; end++) {
     let currVal = str[end];
-    while (set.has(currVal)) {
+    if (set.has(currVal)) {
         set.delete(str[start]);
         start++;
     }
