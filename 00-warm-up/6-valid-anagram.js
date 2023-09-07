@@ -30,3 +30,6 @@ function validAnagram(s, t){
 
   return true;
 }
+
+// Time complexity O(n)
+// Space O(n)
