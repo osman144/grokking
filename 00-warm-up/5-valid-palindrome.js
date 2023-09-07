@@ -13,12 +13,12 @@ function validPalindrome(str){
 
   while(left < right){
     // while char is not alphanumeric move to next line
-    while(!str[left].match(/[a-zA-Z0-9]/)){
+    while(left < right && !str[left].match(/[a-zA-Z0-9]/)){
       // move up
       left++;
     }
 
-    while(!str[right].match(/[a-zA-Z0-9]/)){
+    while(left < right && !str[right].match(/[a-zA-Z0-9]/)){
       // move down
       right--;
     }
