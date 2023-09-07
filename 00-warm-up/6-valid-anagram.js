@@ -32,4 +32,6 @@ function validAnagram(s, t){
 }
 
 // Time complexity O(n)
-// Space O(n)
+// Space O(1), hash map is proportional to 26, the number of letters in the alphabet, only these would increment 
+// but its length stays the same
+// in most cases number of unique characters < 26, so would be O(k), where k is number of unique characters in string
