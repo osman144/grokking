@@ -12,23 +12,25 @@ Output: 2
 Explanation: The first two elements after removing the duplicates will be [2, 11].
 **/
 
-/*
-  1. Shift the elements left whenever we encounter duplicates
-
-  2. Keep one pointer for iterating the array and one pointer for placing the next non-duplicate number
-
-  3. So our algorithm will be to iterate the array and whenever we see a non-duplicate number we move it next to the last non-duplicate number we’ve seen.
-
-*/
-
 function removeDuplicates(arr){
+  if(!arr.length) return;
+  if(arr.length < 2) return 1;
   let left = 1;
   let right = 1;
 
-  // while(left)
+  while(right < arr.length){
+    if(arr[right] !== arr[right - 1]){
+      // compare previous and update
+      arr[left] = arr[right];
+      left++;
+    }
+    right++;
+  }
+
+  return left;
 }
 
-// [2, 3, 6, 9, 6, 9, 9]
-//              n        i
-
 console.log(removeDuplicates([2, 3, 3, 3, 6, 9, 9]))
+
+// Time complexity O(n)
+// Space complexity O(1)

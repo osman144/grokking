@@ -27,3 +27,5 @@ console.log(pairSum([2, 5, 9, 11], 11));
 // Time complexity O(n)
 
 // Space complexity O(1)
+
+// Alternative approaches: Using hash map
