@@ -13,31 +13,35 @@ Input: [-4, -1, 0, 3, 10]
 Output: [0, 1, 9, 16, 100]
 **/
 
-function squareSorted(arr){
+// console.log(squareSorted([-2, -1, 0, 2, 3]));
+// console.log(squareSorted([-3, -1, 0, 1, 2]));
+// console.log(squareSorted([-4, -1, 0, 3, 10]));
+ 
+function square(arr){
+  let left = 0;
   let newArr = [];
-  let left = 0
-  let right = arr.length-1;
+  let right = arr.length - 1;
 
   while(left <= right){
-    let leftCurrent = Math.pow(arr[left], 2);
-    let rightCurrent = Math.pow(arr[right], 2);
+    let squareLeft = Math.pow(arr[left], 2);
+    let squareRight = Math.pow(arr[right], 2);
 
-    if(leftCurrent > rightCurrent){
-      newArr.unshift(leftCurrent);
+    if(squareLeft < squareRight){
+      newArr.push(squareRight);
+      right--
+    }else {
+      newArr.push(squareLeft);
       left++;
-    }else{
-      newArr.unshift(rightCurrent);
-      right--;
     }
   }
 
-  return newArr;
+  return newArr.reverse();
 }
 
-console.log(squareSorted([-2, -1, 0, 2, 3]));
-console.log(squareSorted([-3, -1, 0, 1, 2]));
-console.log(squareSorted([-4, -1, 0, 3, 10]));
 
-// Time Complexity O(n)
+console.log(square([-2, -1, 0, 2, 3]));
+console.log(square([-3, -1, 0, 1, 2]));
+
+
+// Time Complexity O(2n) --> O(n)
 // Space O(n)
- 

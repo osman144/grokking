@@ -30,27 +30,36 @@ Explanation: The triplet [1, 1, 1] has the closest sum to the target.
 
 function tripletTarget(arr, target){
   arr = arr.sort((a,b) => a-b);
-  let result = arr[0] + arr[1] + arr[arr.length-1]; // 0
+  let smallestDifference = Infinity;
+  let closestSum = 0;
 
-  for(let i=0; i<arr.length; i++){
+  for(let i=0; i<arr.length - 2; i++){
     let left = i+1;
     let right = arr.length-1;
 
     while(left<right){
       let currentSum = arr[i] + arr[left] + arr[right];
-      if(currentSum>target){
-        right--;
-      }else if(currentSum<target){
-        left++;
+      let difference = Math.abs(target - currentSum) // 3 - 2 = 1
+
+      if(difference === 0){
+        return currentSum;
       }
-      // 2 < 2
-      if(Math.abs(currentSum - target) < Math.abs(result - target)){
-        result = currentSum;
+      
+      if(difference < smallestDifference){
+        smallestDifference = difference // 1
+        closestSum = currentSum // 2
+      }
+
+      if(currentSum < target){
+        // 2 < 3
+        left = left+1;
+      }else{
+        right = right-1;
       }
     }
   }
 
-  return result;
+  return closestSum;
 }
 
-console.log(tripletTarget([-2, 0, 1, 2], 2))
+console.log(tripletTarget([-1, 0, 2, 3], 3))
